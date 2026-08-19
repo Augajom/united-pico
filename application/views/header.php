@@ -22,9 +22,13 @@ $is_th = ($current_lang == 'thai' || $current_lang == 'th');
     <link rel="stylesheet" href="<?= site_assets_url('css/main.css') ?>" />
     <noscript><link rel="stylesheet" href="<?= site_assets_url('css/noscript.css') ?>" /></noscript>
     <!-- Favicon & Apple Touch Icon -->
-    <link rel="icon" type="image/png" href="<?= base_url('assets/images/logo.png') . '?v=' . (file_exists(FCPATH . 'assets/images/logo.png') ? filemtime(FCPATH . 'assets/images/logo.png') : time()) ?>" />
-    <link rel="shortcut icon" type="image/png" href="<?= base_url('assets/images/logo.png') . '?v=' . (file_exists(FCPATH . 'assets/images/logo.png') ? filemtime(FCPATH . 'assets/images/logo.png') : time()) ?>" />
-    <link rel="apple-touch-icon" href="<?= base_url('assets/images/logo.png') . '?v=' . (file_exists(FCPATH . 'assets/images/logo.png') ? filemtime(FCPATH . 'assets/images/logo.png') : time()) ?>" />
+    <?php 
+        $fav_file = file_exists(FCPATH . 'assets/images/favicon.png') ? 'assets/images/favicon.png' : 'assets/images/logo.png';
+        $fav_url = base_url($fav_file) . '?v=' . (file_exists(FCPATH . $fav_file) ? filemtime(FCPATH . $fav_file) : time());
+    ?>
+    <link rel="icon" type="image/png" href="<?= $fav_url ?>" />
+    <link rel="shortcut icon" type="image/png" href="<?= $fav_url ?>" />
+    <link rel="apple-touch-icon" href="<?= $fav_url ?>" />
 
     <style>
         /* Local Thai Font LINE Seed Sans TH */
