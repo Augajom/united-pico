@@ -21,7 +21,10 @@ $is_th = ($current_lang == 'thai' || $current_lang == 'th');
     <!-- Dimension CSS -->
     <link rel="stylesheet" href="<?= site_assets_url('css/main.css') ?>" />
     <noscript><link rel="stylesheet" href="<?= site_assets_url('css/noscript.css') ?>" /></noscript>
-    <link rel="icon" type="image/png" href="<?= base_url('assets/images/logo.png') ?>" />
+    <!-- Favicon & Apple Touch Icon -->
+    <link rel="icon" type="image/png" href="<?= base_url('assets/images/logo.png') . '?v=' . (file_exists(FCPATH . 'assets/images/logo.png') ? filemtime(FCPATH . 'assets/images/logo.png') : time()) ?>" />
+    <link rel="shortcut icon" type="image/png" href="<?= base_url('assets/images/logo.png') . '?v=' . (file_exists(FCPATH . 'assets/images/logo.png') ? filemtime(FCPATH . 'assets/images/logo.png') : time()) ?>" />
+    <link rel="apple-touch-icon" href="<?= base_url('assets/images/logo.png') . '?v=' . (file_exists(FCPATH . 'assets/images/logo.png') ? filemtime(FCPATH . 'assets/images/logo.png') : time()) ?>" />
 
     <style>
         /* Local Thai Font LINE Seed Sans TH */
